@@ -1,9 +1,9 @@
 ## Requirements
 
-● /people should display all people
-● /people/:personId should display a person by id in detail
-● Use a state management tool
-● Code should be in a production-ready state
+- /people should display all people
+- /people/:personId should display a person by id in detail
+- Use a state management tool
+- Code should be in a production-ready state
 
 ## Technologies used
 
