@@ -21,7 +21,7 @@ function SinglePerson() {
       const response = await axios.get(
         `https://swapi.dev/api/people/${personid}/`
       );
-      console.log(response.data);
+      // console.log(response.data);
       setPerson(response.data);
       getInfo(response.data.films, "film");
       getInfo(response.data.starships, "starships");
@@ -57,7 +57,6 @@ function SinglePerson() {
           break;
         case "species":
           setSpecies(results);
-          console.log(results);
           break;
         default:
           break;
@@ -78,56 +77,95 @@ function SinglePerson() {
   }
 
   return (
-    <div>
+    <>
       {person && (
-        <div>
-          <h1>Name: {person.name}</h1>
-          <h1>
-            Films:
-            <ul>
-              {films &&
-                films.map((film, index) => {
-                  return <li key={index}>{film}</li>;
-                })}
-            </ul>
-          </h1>
-          <h1>Homeworld: {homeworld && homeworld}</h1>
-          <h1>Birth Year: {person.birth_year}</h1>
-          <h1>
-            Species:
-            <ul>
-              {species &&
-                species.map((specie, index) => {
-                  return <li key={index}>{specie}</li>;
-                })}
-            </ul>
-          </h1>
-          <h1>Height: {person.height}</h1>
-          <h1>Mass: {person.mass}</h1>
-          <h1>Hair Color: {person.hair_color}</h1>
-          <h1>Eye Color: {person.eye_color}</h1>
-          <h1>Skin Color: {person.skin_color}</h1>
-          <h1>
-            Starships:
-            <ul>
-              {starships &&
-                starships.map((ship, index) => {
-                  return <li key={index}>{ship}</li>;
-                })}
-            </ul>
-          </h1>
-          <h1>
-            Vehicles:
-            <ul>
-              {vehicles &&
-                vehicles.map((vehicle, index) => {
-                  return <li key={index}>{vehicle}</li>;
-                })}
-            </ul>
-          </h1>
+        <div
+          className="container-fluid d-flex align-items-center justify-content-center "
+          style={{ height: "100vh" }}
+        >
+          <div className="align-items-center col-md-12">
+            <h1 className="text-center" id="name">
+              {person.name}
+            </h1>
+
+            <div className="d-flex justify-content-center container">
+              <div className="col-md-6">
+                <h1 className="title">Films: </h1>
+                <ul>
+                  <h2>
+                    {films &&
+                      films.map((film, index) => {
+                        return <li key={index}>{film}</li>;
+                      })}
+                  </h2>
+                </ul>
+
+                {starships && starships.length !== 0 && (
+                  <>
+                    <h1 className="title">Starships: </h1>
+                    <ul>
+                      <h2>
+                        {starships.map((ship, index) => {
+                          return <li key={index}>{ship}</li>;
+                        })}
+                      </h2>
+                    </ul>
+                  </>
+                )}
+                {vehicles && vehicles.length !== 0 && (
+                  <>
+                    <h1 className="title">Vehicles: </h1>
+                    <ul>
+                      <h2>
+                        {vehicles.map((vehicle, index) => {
+                          return <li key={index}>{vehicle}</li>;
+                        })}
+                      </h2>
+                    </ul>
+                  </>
+                )}
+              </div>
+
+              <div className="col-md-6">
+                <h1 className="title">
+                  Homeworld: <span>{homeworld && homeworld}</span>
+                </h1>
+                <h1 className="title">
+                  Birth Year:<span> {person.birth_year}</span>
+                </h1>
+                {species && species.length !== 0 && (
+                  <>
+                    <h1 className="title">Species:</h1>
+                    <ul>
+                      <h2>
+                        {species.map((specie, index) => {
+                          return <li key={index}>{specie}</li>;
+                        })}
+                      </h2>
+                    </ul>
+                  </>
+                )}
+                <h1 className="title">
+                  Height: <span> {person.height}</span>
+                </h1>
+                <h1 className="title">
+                  Mass: <span>{person.mass}</span>
+                </h1>
+                <h1 className="title">
+                  Hair Color:<span> {person.hair_color}</span>
+                </h1>
+                <h1 className="title">
+                  Eye Color:<span> {person.eye_color}</span>
+                </h1>
+                <h1 className="title">
+                  Skin Color: <span>{person.skin_color}</span>
+                </h1>
+              </div>
+            </div>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
