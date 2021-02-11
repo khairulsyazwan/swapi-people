@@ -19,7 +19,7 @@ function SinglePerson() {
   async function getOnePerson() {
     try {
       const response = await axios.get(
-        `https://swapi.dev/api/people/${personid}/`
+        `http://swapi.dev/api/people/${personid}/`
       );
       // console.log(response.data);
       setPerson(response.data);
@@ -42,7 +42,7 @@ function SinglePerson() {
           results.push(response.data.title);
         } else {
           results.push(response.data.name);
-          console.log(response.data.name);
+          // console.log(response.data.name);
         }
       }
       switch (type) {

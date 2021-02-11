@@ -101,8 +101,11 @@ function AllPeople() {
                   );
                 })
               ) : (
-                <div class="d-flex justify-content-center">
-                  <div class="spinner-grow text-warning" role="status"></div>
+                <div className="d-flex justify-content-center">
+                  <div
+                    className="spinner-grow text-warning"
+                    role="status"
+                  ></div>
                 </div>
               )}
             </div>
@@ -138,7 +141,7 @@ function AllPeople() {
                 )}
 
                 <li className={`page-item ${nextPage == null && "disabled"}`}>
-                  <p class="page-link" onClick={() => pageSelect(nextPage)}>
+                  <p className="page-link" onClick={() => pageSelect(nextPage)}>
                     Next
                   </p>
                 </li>
