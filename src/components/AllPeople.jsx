@@ -77,7 +77,7 @@ function AllPeople() {
       style={{ height: "100vh" }}
     >
       <div className="text-center col-md-12">
-        <h1>THE PEOPLE OF STAR WARS</h1>
+        <h1 className="title">THE PEOPLE OF STAR WARS</h1>
 
         <div className="row">
           <div className="container col-md-12 col-sm-6">
